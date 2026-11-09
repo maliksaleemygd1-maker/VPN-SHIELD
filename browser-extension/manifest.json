@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Proton Plus VPN - Secure Browser Proxy & WebRTC Shield",
+  "version": "1.0.0",
+  "description": "High-throughput WireGuard proxy tunnel with automated WebRTC IP leak blocking and zero-log DNS.",
+  "permissions": [
+    "privacy",
+    "storage",
+    "proxy"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Proton Plus VPN"
+  }
+}

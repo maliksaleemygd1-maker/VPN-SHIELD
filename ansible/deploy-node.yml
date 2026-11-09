@@ -1,0 +1,55 @@
+---
+- name: Deploy and Harden Proton Plus WireGuard Node
+  hosts: vpn_nodes
+  become: true
+  tasks:
+    - name: Ensure WireGuard, nftables, and Unbound are installed
+      apt:
+        name:
+          - wireguard
+          - wireguard-tools
+          - nftables
+          - unbound
+        state: present
+        update_cache: yes
+
+    - name: Apply kernel sysctl tunings
+      copy:
+        src: ../vpn-server/sysctl.d/99-wireguard-tuning.conf
+        dest: /etc/sysctl.d/99-wireguard-tuning.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Reload sysctl
+
+    - name: Apply nftables firewall rules
+      copy:
+        src: ../vpn-server/nftables/vpn-rules.nft
+        dest: /etc/nftables.conf
+        owner: root
+        group: root
+        mode: '0755'
+      notify: Reload nftables
+
+    - name: Configure Unbound zero-log DNS resolver
+      copy:
+        src: ../vpn-server/unbound/unbound.conf
+        dest: /etc/unbound/unbound.conf
+        owner: root
+        group: root
+        mode: '0644'
+      notify: Restart unbound
+
+  handlers:
+    - name: Reload sysctl
+      command: sysctl --system
+
+    - name: Reload nftables
+      systemd:
+        name: nftables
+        state: reloaded
+
+    - name: Restart unbound
+      systemd:
+        name: unbound
+        state: restarted

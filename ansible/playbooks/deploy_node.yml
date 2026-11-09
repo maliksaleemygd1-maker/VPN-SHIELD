@@ -1,0 +1,64 @@
+---
+- name: Deploy and Harden Proton Plus VPN Edge Node
+  hosts: vpn_nodes
+  become: true
+  tasks:
+    - name: Install Kernel & Networking Dependencies
+      apt:
+        name:
+          - wireguard-tools
+          - nftables
+          - unbound
+          - python3
+          - ethtool
+          - iptables-persistent
+        state: present
+        update_cache: yes
+
+    - name: Deploy Kernel Sysctl Performance Profiles
+      copy:
+        src: ../../vpn-server/sysctl.d/99-protonplus-vpn.conf
+        dest: /etc/sysctl.d/99-protonplus-vpn.conf
+        mode: '0644'
+      notify: Reload Sysctl
+
+    - name: Deploy Zero-Log Unbound DNS Configuration
+      copy:
+        src: ../../vpn-server/unbound/unbound.conf
+        dest: /etc/unbound/unbound.conf
+        mode: '0644'
+      notify: Restart Unbound
+
+    - name: Deploy nftables Firewall Rules
+      copy:
+        src: ../../vpn-server/nftables/vpn-rules.nft
+        dest: /etc/nftables/vpn-rules.nft
+        mode: '0644'
+      notify: Reload Nftables
+
+    - name: Deploy WireGuard Node Daemon Service
+      copy:
+        src: ../../vpn-server/daemon/node_daemon.py
+        dest: /usr/local/bin/protonplus-node-daemon.py
+        mode: '0755'
+
+    - name: Enable and Start Edge Services
+      systemd:
+        name: "{{ item }}"
+        enabled: yes
+        state: started
+      loop:
+        - unbound
+        - nftables
+
+  handlers:
+    - name: Reload Sysctl
+      command: sysctl -p /etc/sysctl.d/99-protonplus-vpn.conf
+
+    - name: Restart Unbound
+      systemd:
+        name: unbound
+        state: restarted
+
+    - name: Reload Nftables
+      command: nft -f /etc/nftables/vpn-rules.nft

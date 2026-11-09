@@ -1,0 +1,38 @@
+server:
+  http_port: 8080
+  grpc_port: 9090
+  read_timeout_seconds: 15
+  write_timeout_seconds: 15
+
+database:
+  host: ${POSTGRES_HOST:-localhost}
+  port: 5432
+  user: ${POSTGRES_USER:-protonplus}
+  password: ${POSTGRES_PASSWORD}
+  name: protonplus_vpn
+  max_connections: 50
+  ssl_mode: verify-full
+
+redis:
+  cluster_nodes:
+    - "${REDIS_HOST:-localhost}:6379"
+  password: ${REDIS_PASSWORD}
+
+security:
+  token_signing_algorithm: "Ed25519"
+  token_issuer: "https://api.protonplusvpn.net"
+  access_token_ttl_seconds: 900
+  refresh_token_ttl_seconds: 604800
+  argon2:
+    memory_kib: 65536
+    iterations: 3
+    parallelism: 4
+
+wireguard:
+  client_network_ipv4: "10.64.0.0/10"
+  client_network_ipv6: "fd00:64::/64"
+  dedicated_network_ipv4: "10.128.0.0/10"
+  dns_resolvers:
+    - "10.64.0.1"
+    - "fd00::1"
+  default_mtu: 1420

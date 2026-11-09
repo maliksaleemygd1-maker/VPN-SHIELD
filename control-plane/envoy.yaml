@@ -1,0 +1,84 @@
+static_resources:
+  listeners:
+  - name: https_listener
+    address:
+      socket_address:
+        address: 0.0.0.0
+        port_value: 443
+    filter_chains:
+    - transport_socket:
+        name: envoy.transport_sockets.tls
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.DownstreamTlsContext
+          common_tls_context:
+            tls_params:
+              tls_minimum_protocol_version: TLSv1_3
+              tls_maximum_protocol_version: TLSv1_3
+              cipher_suites:
+              - TLS_AES_256_GCM_SHA384
+              - TLS_CHACHA20_POLY1305_SHA256
+              - TLS_AES_128_GCM_SHA256
+            tls_certificates:
+            - certificate_chain:
+                filename: /etc/envoy/certs/fullchain.pem
+              private_key:
+                filename: /etc/envoy/certs/privkey.pem
+      filters:
+      - name: envoy.filters.network.http_connection_manager
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: protonplus_api
+              domains: ["api.protonplusvpn.net", "*"]
+              routes:
+              - match:
+                  prefix: "/healthz"
+                route:
+                  cluster: backend_control_plane
+              - match:
+                  prefix: "/v1/auth"
+                route:
+                  cluster: backend_control_plane
+                  rate_limits:
+                  - actions:
+                    - request_headers:
+                        header_name: ":path"
+                        descriptor_key: "auth_path"
+              - match:
+                  prefix: "/v1/vpn"
+                route:
+                  cluster: backend_control_plane
+              - match:
+                  prefix: "/v1/servers"
+                route:
+                  cluster: backend_control_plane
+              - match:
+                  prefix: "/v1/dedicated-ip"
+                route:
+                  cluster: backend_control_plane
+              - match:
+                  prefix: "/v1/diagnostics"
+                route:
+                  cluster: backend_control_plane
+          http_filters:
+          - name: envoy.filters.http.router
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+
+  clusters:
+  - name: backend_control_plane
+    connect_timeout: 0.25s
+    type: STRICT_DNS
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: backend_control_plane
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: 127.0.0.1
+                port_value: 8080

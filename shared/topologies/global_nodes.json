@@ -1,0 +1,129 @@
+{
+  "topology_version": "2026.5",
+  "generated_at": 1776520000,
+  "default_mtu": 1420,
+  "backbone_throughput_gbps": 40,
+  "default_dns": ["10.64.0.1", "fd00::1"],
+  "total_locations": 81,
+  "regions": [
+    {
+      "region_name": "Europe",
+      "nodes": [
+        {"id": "srv_al_tia_01", "country": "Albania", "country_code": "AL", "city": "Tirana", "flag": "🇦🇱", "endpoint": "185.120.55.10:51820", "capacity_mbps": 10000, "lat": 41.33, "lon": 19.82},
+        {"id": "srv_ad_alv_01", "country": "Andorra", "country_code": "AD", "city": "Andorra la Vella", "flag": "🇦🇩", "endpoint": "185.120.55.15:51820", "capacity_mbps": 10000, "lat": 42.51, "lon": 1.52},
+        {"id": "srv_at_vie_01", "country": "Austria", "country_code": "AT", "city": "Vienna", "flag": "🇦🇹", "endpoint": "185.120.45.10:51820", "capacity_mbps": 20000, "lat": 48.21, "lon": 16.37},
+        {"id": "srv_be_bru_01", "country": "Belgium", "country_code": "BE", "city": "Brussels", "flag": "🇧🇪", "endpoint": "185.120.45.20:51820", "capacity_mbps": 20000, "lat": 50.85, "lon": 4.35},
+        {"id": "srv_bg_sof_01", "country": "Bulgaria", "country_code": "BG", "city": "Sofia", "flag": "🇧🇬", "endpoint": "185.120.55.25:51820", "capacity_mbps": 10000, "lat": 42.70, "lon": 23.32},
+        {"id": "srv_hr_zag_01", "country": "Croatia", "country_code": "HR", "city": "Zagreb", "flag": "🇭🇷", "endpoint": "185.120.55.30:51820", "capacity_mbps": 10000, "lat": 45.81, "lon": 15.98},
+        {"id": "srv_cy_nic_01", "country": "Cyprus", "country_code": "CY", "city": "Nicosia", "flag": "🇨🇾", "endpoint": "185.120.55.35:51820", "capacity_mbps": 10000, "lat": 35.19, "lon": 33.38},
+        {"id": "srv_cz_prg_01", "country": "Czech Republic", "country_code": "CZ", "city": "Prague", "flag": "🇨🇿", "endpoint": "185.120.45.30:51820", "capacity_mbps": 20000, "lat": 50.08, "lon": 14.44},
+        {"id": "srv_dk_cph_01", "country": "Denmark", "country_code": "DK", "city": "Copenhagen", "flag": "🇩🇰", "endpoint": "185.120.45.40:51820", "capacity_mbps": 20000, "lat": 55.68, "lon": 12.57},
+        {"id": "srv_ee_tll_01", "country": "Estonia", "country_code": "EE", "city": "Tallinn", "flag": "🇪🇪", "endpoint": "185.120.45.50:51820", "capacity_mbps": 10000, "lat": 59.44, "lon": 24.75},
+        {"id": "srv_fi_hel_01", "country": "Finland", "country_code": "FI", "city": "Helsinki", "flag": "🇫🇮", "endpoint": "185.120.45.60:51820", "capacity_mbps": 20000, "lat": 60.17, "lon": 24.94},
+        {"id": "srv_fr_par_01", "country": "France", "country_code": "FR", "city": "Paris", "flag": "🇫🇷", "endpoint": "185.120.46.20:51820", "capacity_mbps": 20000, "lat": 48.86, "lon": 2.35},
+        {"id": "srv_de_fra_01", "country": "Germany", "country_code": "DE", "city": "Frankfurt", "flag": "🇩🇪", "endpoint": "185.120.44.12:51820", "capacity_mbps": 40000, "lat": 50.11, "lon": 8.68},
+        {"id": "srv_de_ber_01", "country": "Germany", "country_code": "DE", "city": "Berlin", "flag": "🇩🇪", "endpoint": "185.120.44.18:51820", "capacity_mbps": 20000, "lat": 52.52, "lon": 13.40},
+        {"id": "srv_gr_ath_01", "country": "Greece", "country_code": "GR", "city": "Athens", "flag": "🇬🇷", "endpoint": "185.120.55.40:51820", "capacity_mbps": 10000, "lat": 37.98, "lon": 23.73},
+        {"id": "srv_hu_bud_01", "country": "Hungary", "country_code": "HU", "city": "Budapest", "flag": "🇭🇺", "endpoint": "185.120.45.70:51820", "capacity_mbps": 10000, "lat": 47.50, "lon": 19.04},
+        {"id": "srv_ie_dub_01", "country": "Ireland", "country_code": "IE", "city": "Dublin", "flag": "🇮🇪", "endpoint": "185.120.48.30:51820", "capacity_mbps": 20000, "lat": 53.35, "lon": -6.26},
+        {"id": "srv_it_mil_01", "country": "Italy", "country_code": "IT", "city": "Milan", "flag": "🇮🇹", "endpoint": "185.120.47.30:51820", "capacity_mbps": 20000, "lat": 45.46, "lon": 9.19},
+        {"id": "srv_lv_rig_01", "country": "Latvia", "country_code": "LV", "city": "Riga", "flag": "🇱🇻", "endpoint": "185.120.45.80:51820", "capacity_mbps": 10000, "lat": 56.95, "lon": 24.11},
+        {"id": "srv_lt_vno_01", "country": "Lithuania", "country_code": "LT", "city": "Vilnius", "flag": "🇱🇹", "endpoint": "185.120.45.90:51820", "capacity_mbps": 10000, "lat": 54.69, "lon": 25.28},
+        {"id": "srv_lu_lux_01", "country": "Luxembourg", "country_code": "LU", "city": "Luxembourg City", "flag": "🇱🇺", "endpoint": "185.120.45.95:51820", "capacity_mbps": 20000, "lat": 49.61, "lon": 6.13},
+        {"id": "srv_md_kiv_01", "country": "Moldova", "country_code": "MD", "city": "Chișinău", "flag": "🇲🇩", "endpoint": "185.120.55.50:51820", "capacity_mbps": 10000, "lat": 47.01, "lon": 28.86},
+        {"id": "srv_mc_mon_01", "country": "Monaco", "country_code": "MC", "city": "Monaco", "flag": "🇲🇨", "endpoint": "185.120.55.55:51820", "capacity_mbps": 10000, "lat": 43.74, "lon": 7.42},
+        {"id": "srv_me_pod_01", "country": "Montenegro", "country_code": "ME", "city": "Podgorica", "flag": "🇲🇪", "endpoint": "185.120.55.60:51820", "capacity_mbps": 10000, "lat": 42.43, "lon": 19.26},
+        {"id": "srv_nl_ams_01", "country": "Netherlands", "country_code": "NL", "city": "Amsterdam", "flag": "🇳🇱", "endpoint": "185.120.46.10:51820", "capacity_mbps": 40000, "lat": 52.37, "lon": 4.90},
+        {"id": "srv_no_osl_01", "country": "Norway", "country_code": "NO", "city": "Oslo", "flag": "🇳🇴", "endpoint": "185.120.45.85:51820", "capacity_mbps": 20000, "lat": 59.91, "lon": 10.75},
+        {"id": "srv_pl_waw_01", "country": "Poland", "country_code": "PL", "city": "Warsaw", "flag": "🇵🇱", "endpoint": "185.120.49.10:51820", "capacity_mbps": 20000, "lat": 52.23, "lon": 21.01},
+        {"id": "srv_pt_lis_01", "country": "Portugal", "country_code": "PT", "city": "Lisbon", "flag": "🇵🇹", "endpoint": "185.120.49.20:51820", "capacity_mbps": 10000, "lat": 38.72, "lon": -9.14},
+        {"id": "srv_ro_otp_01", "country": "Romania", "country_code": "RO", "city": "Bucharest", "flag": "🇷🇴", "endpoint": "185.120.49.30:51820", "capacity_mbps": 10000, "lat": 44.43, "lon": 26.10},
+        {"id": "srv_rs_beg_01", "country": "Serbia", "country_code": "RS", "city": "Belgrade", "flag": "🇷🇸", "endpoint": "185.120.55.70:51820", "capacity_mbps": 10000, "lat": 44.79, "lon": 20.45},
+        {"id": "srv_sk_bts_01", "country": "Slovakia", "country_code": "SK", "city": "Bratislava", "flag": "🇸🇰", "endpoint": "185.120.49.40:51820", "capacity_mbps": 10000, "lat": 48.15, "lon": 17.11},
+        {"id": "srv_si_lju_01", "country": "Slovenia", "country_code": "SI", "city": "Ljubljana", "flag": "🇸🇮", "endpoint": "185.120.49.50:51820", "capacity_mbps": 10000, "lat": 46.06, "lon": 14.51},
+        {"id": "srv_es_mad_01", "country": "Spain", "country_code": "ES", "city": "Madrid", "flag": "🇪🇸", "endpoint": "185.120.49.60:51820", "capacity_mbps": 20000, "lat": 40.42, "lon": -3.70},
+        {"id": "srv_se_arn_01", "country": "Sweden", "country_code": "SE", "city": "Stockholm", "flag": "🇸🇪", "endpoint": "185.120.49.70:51820", "capacity_mbps": 20000, "lat": 59.33, "lon": 18.07},
+        {"id": "srv_ch_zrh_01", "country": "Switzerland", "country_code": "CH", "city": "Zurich", "flag": "🇨🇭", "endpoint": "185.120.47.15:51820", "capacity_mbps": 30000, "lat": 47.38, "lon": 8.54},
+        {"id": "srv_ua_kbp_01", "country": "Ukraine", "country_code": "UA", "city": "Kyiv", "flag": "🇺🇦", "endpoint": "185.120.49.80:51820", "capacity_mbps": 10000, "lat": 50.45, "lon": 30.52},
+        {"id": "srv_gb_lon_01", "country": "United Kingdom", "country_code": "GB", "city": "London", "flag": "🇬🇧", "endpoint": "185.120.48.5:51820", "capacity_mbps": 30000, "lat": 51.51, "lon": -0.13},
+        {"id": "srv_gb_man_01", "country": "United Kingdom", "country_code": "GB", "city": "Manchester", "flag": "🇬🇧", "endpoint": "185.120.48.20:51820", "capacity_mbps": 20000, "lat": 53.48, "lon": -2.24}
+      ]
+    },
+    {
+      "region_name": "Russia & Central Asia",
+      "nodes": [
+        {"id": "srv_ru_mow_01", "country": "Russia", "country_code": "RU", "city": "Moscow", "flag": "🇷🇺", "endpoint": "95.173.136.50:51820", "capacity_mbps": 20000, "lat": 55.76, "lon": 37.62},
+        {"id": "srv_ru_led_01", "country": "Russia", "country_code": "RU", "city": "Saint Petersburg", "flag": "🇷🇺", "endpoint": "95.173.138.12:51820", "capacity_mbps": 20000, "lat": 59.93, "lon": 30.34},
+        {"id": "srv_ru_ovb_01", "country": "Russia", "country_code": "RU", "city": "Novosibirsk", "flag": "🇷🇺", "endpoint": "95.173.140.22:51820", "capacity_mbps": 10000, "lat": 55.01, "lon": 82.93},
+        {"id": "srv_am_evn_01", "country": "Armenia", "country_code": "AM", "city": "Yerevan", "flag": "🇦🇲", "endpoint": "95.173.150.10:51820", "capacity_mbps": 10000, "lat": 40.18, "lon": 44.50},
+        {"id": "srv_az_gyd_01", "country": "Azerbaijan", "country_code": "AZ", "city": "Baku", "flag": "🇦🇿", "endpoint": "95.173.150.20:51820", "capacity_mbps": 10000, "lat": 40.41, "lon": 49.87},
+        {"id": "srv_ge_tbs_01", "country": "Georgia", "country_code": "GE", "city": "Tbilisi", "flag": "🇬🇪", "endpoint": "95.173.150.30:51820", "capacity_mbps": 10000, "lat": 41.72, "lon": 44.83},
+        {"id": "srv_kz_ala_01", "country": "Kazakhstan", "country_code": "KZ", "city": "Almaty", "flag": "🇰🇿", "endpoint": "95.173.150.40:51820", "capacity_mbps": 10000, "lat": 43.22, "lon": 76.85},
+        {"id": "srv_mn_uln_01", "country": "Mongolia", "country_code": "MN", "city": "Ulaanbaatar", "flag": "🇲🇳", "endpoint": "95.173.150.50:51820", "capacity_mbps": 10000, "lat": 47.89, "lon": 106.91},
+        {"id": "srv_uz_tas_01", "country": "Uzbekistan", "country_code": "UZ", "city": "Tashkent", "flag": "🇺🇿", "endpoint": "95.173.150.60:51820", "capacity_mbps": 10000, "lat": 41.30, "lon": 69.24}
+      ]
+    },
+    {
+      "region_name": "South & West Asia / Middle East",
+      "nodes": [
+        {"id": "srv_pk_khi_01", "country": "Pakistan", "country_code": "PK", "city": "Karachi", "flag": "🇵🇰", "endpoint": "111.119.160.20:51820", "capacity_mbps": 20000, "lat": 24.86, "lon": 67.00},
+        {"id": "srv_pk_isb_01", "country": "Pakistan", "country_code": "PK", "city": "Islamabad", "flag": "🇵🇰", "endpoint": "111.119.162.88:51820", "capacity_mbps": 20000, "lat": 33.68, "lon": 73.04},
+        {"id": "srv_pk_lhe_01", "country": "Pakistan", "country_code": "PK", "city": "Lahore", "flag": "🇵🇰", "endpoint": "111.119.164.12:51820", "capacity_mbps": 20000, "lat": 31.52, "lon": 74.36},
+        {"id": "srv_bd_dac_01", "country": "Bangladesh", "country_code": "BD", "city": "Dhaka", "flag": "🇧🇩", "endpoint": "111.119.170.10:51820", "capacity_mbps": 10000, "lat": 23.81, "lon": 90.41},
+        {"id": "srv_in_bom_01", "country": "India", "country_code": "IN", "city": "Mumbai", "flag": "🇮🇳", "endpoint": "103.253.146.33:51820", "capacity_mbps": 20000, "lat": 19.08, "lon": 72.88},
+        {"id": "srv_il_tlv_01", "country": "Israel", "country_code": "IL", "city": "Tel Aviv", "flag": "🇮🇱", "endpoint": "185.120.52.40:51820", "capacity_mbps": 20000, "lat": 32.09, "lon": 34.78},
+        {"id": "srv_np_ktm_01", "country": "Nepal", "country_code": "NP", "city": "Kathmandu", "flag": "🇳🇵", "endpoint": "111.119.170.20:51820", "capacity_mbps": 10000, "lat": 27.72, "lon": 85.32},
+        {"id": "srv_sa_ruh_01", "country": "Saudi Arabia", "country_code": "SA", "city": "Riyadh", "flag": "🇸🇦", "endpoint": "185.120.52.60:51820", "capacity_mbps": 20000, "lat": 24.71, "lon": 46.68},
+        {"id": "srv_lk_cmb_01", "country": "Sri Lanka", "country_code": "LK", "city": "Colombo", "flag": "🇱🇰", "endpoint": "103.253.150.10:51820", "capacity_mbps": 10000, "lat": 6.93, "lon": 79.86},
+        {"id": "srv_tr_ist_01", "country": "Turkey", "country_code": "TR", "city": "Istanbul", "flag": "🇹🇷", "endpoint": "185.120.53.10:51820", "capacity_mbps": 20000, "lat": 41.01, "lon": 28.98},
+        {"id": "srv_ae_dxb_01", "country": "UAE", "country_code": "AE", "city": "Dubai", "flag": "🇦🇪", "endpoint": "185.120.52.88:51820", "capacity_mbps": 30000, "lat": 25.20, "lon": 55.27}
+      ]
+    },
+    {
+      "region_name": "Asia Pacific",
+      "nodes": [
+        {"id": "srv_au_syd_01", "country": "Australia", "country_code": "AU", "city": "Sydney", "flag": "🇦🇺", "endpoint": "139.130.4.5:51820", "capacity_mbps": 20000, "lat": -33.87, "lon": 151.21},
+        {"id": "srv_hk_hkg_01", "country": "Hong Kong", "country_code": "HK", "city": "Hong Kong", "flag": "🇭🇰", "endpoint": "103.253.140.10:51820", "capacity_mbps": 30000, "lat": 22.32, "lon": 114.17},
+        {"id": "srv_id_jkt_01", "country": "Indonesia", "country_code": "ID", "city": "Jakarta", "flag": "🇮🇩", "endpoint": "103.253.148.10:51820", "capacity_mbps": 20000, "lat": -6.21, "lon": 106.85},
+        {"id": "srv_jp_tyo_01", "country": "Japan", "country_code": "JP", "city": "Tokyo", "flag": "🇯🇵", "endpoint": "133.242.18.90:51820", "capacity_mbps": 30000, "lat": 35.68, "lon": 139.65},
+        {"id": "srv_my_kul_01", "country": "Malaysia", "country_code": "MY", "city": "Kuala Lumpur", "flag": "🇲🇾", "endpoint": "103.253.147.20:51820", "capacity_mbps": 20000, "lat": 3.14, "lon": 101.69},
+        {"id": "srv_nz_akl_01", "country": "New Zealand", "country_code": "NZ", "city": "Auckland", "flag": "🇳🇿", "endpoint": "139.130.12.80:51820", "capacity_mbps": 10000, "lat": -36.85, "lon": 174.76},
+        {"id": "srv_ph_mnl_01", "country": "Philippines", "country_code": "PH", "city": "Manila", "flag": "🇵🇭", "endpoint": "103.253.149.30:51820", "capacity_mbps": 10000, "lat": 14.60, "lon": 120.98},
+        {"id": "srv_sg_sin_01", "country": "Singapore", "country_code": "SG", "city": "Singapore", "flag": "🇸🇬", "endpoint": "103.253.144.5:51820", "capacity_mbps": 40000, "lat": 1.35, "lon": 103.82},
+        {"id": "srv_kr_icn_01", "country": "South Korea", "country_code": "KR", "city": "Seoul", "flag": "🇰🇷", "endpoint": "133.242.24.50:51820", "capacity_mbps": 30000, "lat": 37.57, "lon": 126.98},
+        {"id": "srv_tw_tpe_01", "country": "Taiwan", "country_code": "TW", "city": "Taipei", "flag": "🇹🇼", "endpoint": "103.253.142.20:51820", "capacity_mbps": 20000, "lat": 25.03, "lon": 121.57},
+        {"id": "srv_th_bkk_01", "country": "Thailand", "country_code": "TH", "city": "Bangkok", "flag": "🇹🇭", "endpoint": "103.253.143.10:51820", "capacity_mbps": 20000, "lat": 13.76, "lon": 100.50},
+        {"id": "srv_vn_han_01", "country": "Vietnam", "country_code": "VN", "city": "Hanoi", "flag": "🇻🇳", "endpoint": "103.253.145.40:51820", "capacity_mbps": 20000, "lat": 21.03, "lon": 105.85}
+      ]
+    },
+    {
+      "region_name": "Americas",
+      "nodes": [
+        {"id": "srv_ar_eze_01", "country": "Argentina", "country_code": "AR", "city": "Buenos Aires", "flag": "🇦🇷", "endpoint": "199.180.30.10:51820", "capacity_mbps": 10000, "lat": -34.60, "lon": -58.38},
+        {"id": "srv_br_gru_01", "country": "Brazil", "country_code": "BR", "city": "São Paulo", "flag": "🇧🇷", "endpoint": "199.180.30.20:51820", "capacity_mbps": 20000, "lat": -23.55, "lon": -46.63},
+        {"id": "srv_ca_yyz_01", "country": "Canada", "country_code": "CA", "city": "Toronto", "flag": "🇨🇦", "endpoint": "199.180.25.10:51820", "capacity_mbps": 30000, "lat": 43.65, "lon": -79.38},
+        {"id": "srv_cl_scl_01", "country": "Chile", "country_code": "CL", "city": "Santiago", "flag": "🇨🇱", "endpoint": "199.180.30.30:51820", "capacity_mbps": 10000, "lat": -33.45, "lon": -70.67},
+        {"id": "srv_co_bog_01", "country": "Colombia", "country_code": "CO", "city": "Bogotá", "flag": "🇨🇴", "endpoint": "199.180.30.40:51820", "capacity_mbps": 10000, "lat": 4.71, "lon": -74.07},
+        {"id": "srv_cr_sjo_01", "country": "Costa Rica", "country_code": "CR", "city": "San José", "flag": "🇨🇷", "endpoint": "199.180.30.50:51820", "capacity_mbps": 10000, "lat": 9.93, "lon": -84.09},
+        {"id": "srv_ec_uio_01", "country": "Ecuador", "country_code": "EC", "city": "Quito", "flag": "🇪🇨", "endpoint": "199.180.30.60:51820", "capacity_mbps": 10000, "lat": -0.18, "lon": -78.47},
+        {"id": "srv_mx_mex_01", "country": "Mexico", "country_code": "MX", "city": "Mexico City", "flag": "🇲🇽", "endpoint": "199.180.28.10:51820", "capacity_mbps": 20000, "lat": 19.43, "lon": -99.13},
+        {"id": "srv_pa_pty_01", "country": "Panama", "country_code": "PA", "city": "Panama City", "flag": "🇵🇦", "endpoint": "199.180.30.70:51820", "capacity_mbps": 10000, "lat": 8.98, "lon": -79.52},
+        {"id": "srv_pe_lim_01", "country": "Peru", "country_code": "PE", "city": "Lima", "flag": "🇵🇪", "endpoint": "199.180.30.80:51820", "capacity_mbps": 10000, "lat": -12.05, "lon": -77.04},
+        {"id": "srv_us_ash_01", "country": "United States", "country_code": "US", "city": "Ashburn (VA)", "flag": "🇺🇸", "endpoint": "199.180.12.44:51820", "capacity_mbps": 40000, "lat": 39.04, "lon": -77.49},
+        {"id": "srv_us_nyc_01", "country": "United States", "country_code": "US", "city": "New York (NY)", "flag": "🇺🇸", "endpoint": "199.180.12.50:51820", "capacity_mbps": 30000, "lat": 40.71, "lon": -74.01},
+        {"id": "srv_us_lax_01", "country": "United States", "country_code": "US", "city": "Los Angeles (CA)", "flag": "🇺🇸", "endpoint": "199.180.14.88:51820", "capacity_mbps": 30000, "lat": 34.05, "lon": -118.24},
+        {"id": "srv_uy_mvd_01", "country": "Uruguay", "country_code": "UY", "city": "Montevideo", "flag": "🇺🇾", "endpoint": "199.180.30.90:51820", "capacity_mbps": 10000, "lat": -34.90, "lon": -56.16},
+        {"id": "srv_ve_ccs_01", "country": "Venezuela", "country_code": "VE", "city": "Caracas", "flag": "🇻🇪", "endpoint": "199.180.30.95:51820", "capacity_mbps": 10000, "lat": 10.48, "lon": -66.90}
+      ]
+    },
+    {
+      "region_name": "Africa",
+      "nodes": [
+        {"id": "srv_dz_alg_01", "country": "Algeria", "country_code": "DZ", "city": "Algiers", "flag": "🇩🇿", "endpoint": "185.120.56.10:51820", "capacity_mbps": 10000, "lat": 36.75, "lon": 3.06},
+        {"id": "srv_eg_cai_01", "country": "Egypt", "country_code": "EG", "city": "Cairo", "flag": "🇪🇬", "endpoint": "185.120.56.20:51820", "capacity_mbps": 10000, "lat": 30.04, "lon": 31.24},
+        {"id": "srv_ng_los_01", "country": "Nigeria", "country_code": "NG", "city": "Lagos", "flag": "🇳🇬", "endpoint": "185.120.56.30:51820", "capacity_mbps": 10000, "lat": 6.52, "lon": 3.38},
+        {"id": "srv_za_jnb_01", "country": "South Africa", "country_code": "ZA", "city": "Johannesburg", "flag": "🇿🇦", "endpoint": "185.120.56.40:51820", "capacity_mbps": 20000, "lat": -26.20, "lon": 28.05}
+      ]
+    }
+  ]
+}

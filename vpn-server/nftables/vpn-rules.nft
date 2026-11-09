@@ -1,0 +1,60 @@
+#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+    chain input {
+        type filter hook input priority filter; policy drop;
+
+        # Accept established and related connections
+        ct state established,related accept
+
+        # Accept loopback traffic
+        iif lo accept
+
+        # Accept WireGuard ingress
+        udp dport 51820 accept
+
+        # Accept internal DNS queries only from WireGuard interface
+        iifname "wg0" udp dport 53 accept
+        iifname "wg0" tcp dport 53 accept
+
+        # Accept SSH from management bastion only
+        tcp dport 22 ct state new accept
+
+        # ICMP rate limited
+        ip protocol icmp icmp type echo-request limit rate 10/second accept
+        ip6 nexthdr icmpv6 icmpv6 type echo-request limit rate 10/second accept
+    }
+
+    chain forward {
+        type filter hook forward priority filter; policy drop;
+
+        # MSS Clamping to prevent packet fragmentation over MTU 1420
+        tcp flags syn tcp option maxseg size set rt mtu - 40
+
+        # Allow forwarding from wg0 to public WAN interface
+        iifname "wg0" oifname "eth0" ct state new,established,related accept
+        iifname "eth0" oifname "wg0" ct state established,related accept
+    }
+
+    chain output {
+        type filter hook output priority filter; policy accept;
+    }
+}
+
+table ip nat {
+    chain postrouting {
+        type nat hook postrouting priority srcnat; policy accept;
+
+        # General VPN Subnet SNAT (Dynamic multi-user NAT)
+        ip saddr 10.64.0.0/10 oifname "eth0" masquerade
+    }
+}
+
+table ip6 nat {
+    chain postrouting {
+        type nat hook postrouting priority srcnat; policy accept;
+        ip6 saddr fd00:64::/64 oifname "eth0" masquerade
+    }
+}

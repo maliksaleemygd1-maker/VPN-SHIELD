@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proton Plus VPN - NetOps Fleet Operations</title>
+  <style>
+    :root {
+      --bg: #090D16;
+      --surface: #111827;
+      --card: #1A2234;
+      --border: #2B3852;
+      --accent: #00E5A3;
+      --cyan: #00D2FF;
+      --danger: #FF4757;
+      --text: #FFFFFF;
+      --muted: #94A3B8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .brand { font-size: 20px; font-weight: bold; color: var(--accent); display: flex; align-items: center; gap: 8px; }
+    .grid-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+    .stat-title { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+    .stat-val { font-size: 28px; font-weight: bold; }
+    .val-accent { color: var(--accent); }
+    .val-cyan { color: var(--cyan); }
+    .nodes-section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th { padding: 12px; font-size: 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    td { padding: 12px; font-size: 13px; border-bottom: 1px solid #1a2234; }
+    .badge { padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold; }
+    .badge-healthy { background: rgba(0, 229, 163, 0.15); color: var(--accent); }
+    .badge-load { background: var(--card); color: var(--cyan); }
+    .btn-drain { background: transparent; border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; border-radius: 6px; cursor: pointer; }
+    .btn-drain:hover { border-color: var(--danger); color: var(--danger); }
+    .btn-killswitch { background: var(--danger); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">🛡️ Proton Plus VPN — Fleet Operations Center</div>
+    <div>
+      <button class="btn-killswitch" onclick="triggerFleetEmergency()">EMERGENCY FLEET DRAIN</button>
+    </div>
+  </div>
+
+  <div class="grid-stats">
+    <div class="stat-card">
+      <div class="stat-title">Active Data Plane Nodes</div>
+      <div class="stat-val val-accent">48 / 48</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">Global Active Peers</div>
+      <div class="stat-val val-cyan">184,920</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">Aggregated Throughput</div>
+      <div class="stat-val">342.8 Gbps</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-title">Average Edge Latency</div>
+      <div class="stat-val val-accent">14.2 ms</div>
+    </div>
+  </div>
+
+  <div class="nodes-section">
+    <div class="section-header">
+      <h2>Edge Nodes Topology & Status</h2>
+      <span style="font-size: 12px; color: var(--muted);">Auto-refreshing every 5s</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>NODE ID</th>
+          <th>LOCATION</th>
+          <th>ENDPOINT</th>
+          <th>LOAD %</th>
+          <th>ACTIVE PEERS</th>
+          <th>AVG PING</th>
+          <th>STATUS</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>srv_de_fra_01</strong></td>
+          <td>🇩🇪 Frankfurt, Germany</td>
+          <td>185.120.44.12:51820</td>
+          <td><span class="badge badge-load">22%</span></td>
+          <td>4,210</td>
+          <td>12 ms</td>
+          <td><span class="badge badge-healthy">OPERATIONAL</span></td>
+          <td><button class="btn-drain">Drain</button></td>
+        </tr>
+        <tr>
+          <td><strong>srv_ru_mow_01</strong></td>
+          <td>🇷🇺 Moscow, Russia</td>
+          <td>95.173.136.50:51820</td>
+          <td><span class="badge badge-load">31%</span></td>
+          <td>3,840</td>
+          <td>28 ms</td>
+          <td><span class="badge badge-healthy">OPERATIONAL</span></td>
+          <td><button class="btn-drain">Drain</button></td>
+        </tr>
+        <tr>
+          <td><strong>srv_pk_khi_01</strong></td>
+          <td>🇵🇰 Karachi, Pakistan</td>
+          <td>111.119.160.20:51820</td>
+          <td><span class="badge badge-load">42%</span></td>
+          <td>2,980</td>
+          <td>38 ms</td>
+          <td><span class="badge badge-healthy">OPERATIONAL</span></td>
+          <td><button class="btn-drain">Drain</button></td>
+        </tr>
+        <tr>
+          <td><strong>srv_us_ash_01</strong></td>
+          <td>🇺🇸 Ashburn, United States</td>
+          <td>199.180.12.44:51820</td>
+          <td><span class="badge badge-load">28%</span></td>
+          <td>5,420</td>
+          <td>16 ms</td>
+          <td><span class="badge badge-healthy">OPERATIONAL</span></td>
+          <td><button class="btn-drain">Drain</button></td>
+        </tr>
+        <tr>
+          <td><strong>srv_sg_sin_01</strong></td>
+          <td>🇸🇬 Singapore</td>
+          <td>103.253.144.5:51820</td>
+          <td><span class="badge badge-load">19%</span></td>
+          <td>3,150</td>
+          <td>11 ms</td>
+          <td><span class="badge badge-healthy">OPERATIONAL</span></td>
+          <td><button class="btn-drain">Drain</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function triggerFleetEmergency() {
+      if (confirm("WARNING: Are you sure you want to trigger emergency fail-closed fleet drain?")) {
+        alert("Emergency fail-closed rules broadcasted to all 48 edge nodes.");
+      }
+    }
+  </script>
+</body>
+</html>

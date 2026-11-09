@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package protonplus.vpn.v1;
+
+option go_package = "github.com/protonplusvpn/backend/proto/v1;vpnv1";
+
+// Control Plane <-> Node Agent coordination
+service VpnNodeService {
+  rpc RegisterNode(RegisterNodeRequest) returns (RegisterNodeResponse);
+  rpc StreamTelemetry(stream NodeTelemetryPing) returns (TelemetryAck);
+  rpc AddPeer(AddPeerRequest) returns (PeerOperationResponse);
+  rpc RemovePeer(RemovePeerRequest) returns (PeerOperationResponse);
+  rpc AllocateDedicatedNat(DedicatedNatRequest) returns (PeerOperationResponse);
+}
+
+message RegisterNodeRequest {
+  string node_id = 1;
+  string hostname = 2;
+  string public_ipv4 = 3;
+  string public_ipv6 = 4;
+  string wireguard_public_key = 5;
+  int32 port = 6;
+  string country_code = 7;
+  string city_name = 8;
+  int64 capacity_mbps = 9;
+}
+
+message RegisterNodeResponse {
+  bool accepted = 1;
+  int64 heartbeat_interval_seconds = 2;
+}
+
+message NodeTelemetryPing {
+  string node_id = 1;
+  int64 timestamp = 2;
+  float cpu_percent = 3;
+  float memory_percent = 4;
+  int64 egress_bandwidth_bps = 5;
+  int32 active_peers = 6;
+  float packet_loss_rate = 7;
+}
+
+message TelemetryAck {
+  bool status_ok = 1;
+  bool drain_mode_enabled = 2;
+}
+
+message AddPeerRequest {
+  string client_public_key = 1;
+  string assigned_ipv4 = 2;
+  string assigned_ipv6 = 3;
+  int32 keepalive_seconds = 4;
+}
+
+message RemovePeerRequest {
+  string client_public_key = 1;
+}
+
+message DedicatedNatRequest {
+  string client_internal_ip = 1;
+  string dedicated_public_ip = 2;
+}
+
+message PeerOperationResponse {
+  bool success = 1;
+  string error_message = 2;
+}

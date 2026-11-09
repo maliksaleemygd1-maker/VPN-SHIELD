@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proton Plus VPN</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <div class="brand">
+        <span class="logo-shield">🛡️</span>
+        <span class="brand-name">Proton Plus</span>
+      </div>
+      <span id="protocolBadge" class="badge">WireGuard®</span>
+    </header>
+
+    <div class="shield-section">
+      <button id="connectBtn" class="shield-btn">
+        <div class="shield-inner">
+          <svg class="power-icon" viewBox="0 0 24 24" width="36" height="36" fill="currentColor">
+            <path d="M12 2a1 1 0 0 1 1 1v8a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm6.364 3.05a1 1 0 0 1 1.414 1.414 10 10 0 1 1-15.556 0 1 1 0 1 1 1.414-1.414 12 12 0 1 0 12.728 0z"/>
+          </svg>
+        </div>
+      </button>
+      <div id="statusLabel" class="status-label">NOT PROTECTED</div>
+      <div class="sub-status">WebRTC Shield Active</div>
+    </div>
+
+    <div class="server-card">
+      <div class="server-info">
+        <span class="server-flag">🇩🇪</span>
+        <div>
+          <div class="server-title">Frankfurt, Germany</div>
+          <div id="virtualIp" class="server-ip">Endpoint: 185.120.44.12</div>
+        </div>
+      </div>
+      <div class="ping-pill">12 ms</div>
+    </div>
+
+    <div class="footer-stats">
+      <div class="stat-pill">
+        <span>DNS Leak:</span> <strong>0 Leaks</strong>
+      </div>
+      <div class="stat-pill">
+        <span>WebRTC:</span> <strong>Blocked</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

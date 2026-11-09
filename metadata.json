@@ -1,0 +1,6 @@
+{
+  "name": "Proton Plus VPN",
+  "description": "High-speed, ultra-low latency, and privacy-focused global mobile WireGuard VPN platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: protonplus_db
+    environment:
+      POSTGRES_DB: protonplus_vpn
+      POSTGRES_USER: protonadmin
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-secure_vault_pass_2026}
+    volumes:
+      - ./backend/migrations/001_initial_schema.sql:/docker-entrypoint-initdb.d/001_initial_schema.sql:ro
+      - ./backend/migrations/002_seed_servers.sql:/docker-entrypoint-initdb.d/002_seed_servers.sql:ro
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  control-plane:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: protonplus_control_plane
+    environment:
+      DATABASE_URL: postgres://protonadmin:${DB_PASSWORD:-secure_vault_pass_2026}@postgres:5432/protonplus_vpn?sslmode=disable
+      PORT: "8080"
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  envoy-gateway:
+    image: envoyproxy/envoy:v1.30-latest
+    container_name: protonplus_envoy
+    volumes:
+      - ./control-plane/envoy.yaml:/etc/envoy/envoy.yaml:ro
+    ports:
+      - "443:443"
+    depends_on:
+      - control-plane
+    restart: unless-stopped
+
+  netops-dashboard:
+    image: nginx:alpine
+    container_name: protonplus_admin_dashboard
+    volumes:
+      - ./admin-dashboard:/usr/share/nginx/html:ro
+    ports:
+      - "9000:80"
+    restart: unless-stopped
